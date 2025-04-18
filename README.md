@@ -27,7 +27,7 @@ python ./data/get_data.py
 ```
 - The processed data files are stored in the `./data/` directory.
 
-### Training a representation model
+### Training an interpretation model
 - To train the model on the Buchwald-Hartwig dataset, run the following command (data_id: 1 (Buchwald-Hartwig), split_id: 0, train_size: 2767):
 ```python
 python run.py -d 1 -s 0 -t 2767
