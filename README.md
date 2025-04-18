@@ -37,6 +37,7 @@ python run.py -d 1 -s 0 -t 2767
 python run.py -d 2 -s 0 -t 4032
 ```
 - The trained models are stored in the `./model/` directory.
+- The predictions and interpretations are stored in the `./result/` directory.
 
 ## Dependencies
 - **Python**
