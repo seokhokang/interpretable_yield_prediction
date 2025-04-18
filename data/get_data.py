@@ -5,7 +5,7 @@ from rdkit.Chem import AllChem, ChemicalFeatures
 
 
 node_in_feats = 49
-edge_in_feats = 8
+edge_in_feats = 10
 
 atom_types = ['Li','B','C','N','O','F','Na','P','S','Cl','K','Fe','Br','Pd','I','Cs']
 
@@ -31,9 +31,11 @@ bond_types = [Chem.rdchem.BondType.SINGLE,
               Chem.rdchem.BondType.TRIPLE,
               Chem.rdchem.BondType.AROMATIC]
 
-bond_direction_types = [Chem.rdchem.BondDir.ENDUPRIGHT,
-                        Chem.rdchem.BondDir.ENDDOWNRIGHT]
+bond_dir_types = [Chem.rdchem.BondDir.ENDUPRIGHT,
+                  Chem.rdchem.BondDir.ENDDOWNRIGHT]
 
+bond_stereo_types = [Chem.rdchem.BondStereo.STEREOE,
+                     Chem.rdchem.BondStereo.STEREOZ]
 
 chem_feature_factory = ChemicalFeatures.BuildFeatureFactory(os.path.join(RDConfig.RDDataDir, 'BaseFeatures.fdef'))
                                    
@@ -65,7 +67,8 @@ def smi_to_graph(smi):
 
     def bond_featurizer(b):
         fea = (one_hot_encoding(b.GetBondType(), bond_types)
-               + one_hot_encoding(b.GetBondDir(), bond_direction_types)
+               + one_hot_encoding(b.GetBondDir(), bond_dir_types)
+               + one_hot_encoding(b.GetStereo(), bond_stereo_types)
                + [b.IsInRing(), b.GetIsConjugated()]
               )
         
