@@ -20,6 +20,9 @@ Pytorch implementation of the method described in the paper [Interpretation of c
 ## Usage Example
 
 ### Data processing
+- The Buchwald-Hartwig and Suzuki-Miyaura datasets are publicly accessible at:
+  - Buchwald-Hartwig: https://github.com/doylelab/rxnpredict
+  - Suzuki-Miyaura: https://www.science.org/doi/10.1126/science.aap9112
 - Train/test splits for the Buchwald-Hartwig and Suzuki-Miyaura datasets are located in the `./data/split/` directory.
 - To preprocess the data, run the following command:
 ```python
